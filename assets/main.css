@@ -6,8 +6,6 @@ html, body {
 }
 
 #drawing_canvas {
-    width: 100%;
-    height: 100%;
     background: grey;
     margin: 0;
     padding: 0;
