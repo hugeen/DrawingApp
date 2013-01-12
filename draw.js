@@ -8,21 +8,17 @@ var Draw = {
         this.canvas = document.getElementById("drawing_canvas");
         this.context = this.canvas.getContext("2d");
         
-        // Lorsque l'utilisateur commence à dessiner
-        this.canvas.addEventListener('touchstart', function(e) {
-            Draw.start({ x: e.clientX, y: e.clientY });
-        }, false);
-    
-        // Lorsque l'utilisateur dessine
-        this.canvas.addEventListener('touchmove', function(e) {
-            Draw.move({ x: e.clientX, y: e.clientY });
-        });
-    
-        // Lorsque l'utilisateur arrête de dessiner
-        this.canvas.addEventListener('touchend', function(e) {
+        var hammer = new Hammer(this.canvas);
+        hammer.ondragstart = function(ev) {
+            Draw.start(ev.position);
+        };
+        hammer.ondrag = function(ev) {
+            Draw.move(ev.position);
+        };
+        hammer.ondragend = function(ev) {
             Draw.end();
-        });
-        
+        };
+
         this.resize();
     
     },
