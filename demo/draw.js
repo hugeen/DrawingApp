@@ -3,7 +3,7 @@ var Draw = {
     startPosition: { x: 0, y: 0 },
     currentPosition: {x: 0, y: 0 },
     initialize: function() {
-    	alert("OK");
+    
         // Récupération de l'element <canvas>
         this.canvas = document.getElementById("drawing_canvas");
         this.context = this.canvas.getContext("2d");
