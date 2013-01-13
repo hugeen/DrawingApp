@@ -1,25 +1,33 @@
 var Draw = {
-    isDrawing: false,
-    startPosition: { x: 0, y: 0 },
-    currentPosition: {x: 0, y: 0 },
+	
+    // Initialisation des variables
+    isDrawing: false, // L'utilisateur est il entrain de dessiner ?
+    startPosition: { x: 0, y: 0 }, // Position précédente
+    currentPosition: {x: 0, y: 0 }, // Position actuelle
     initialize: function() {
     
-        // Récupération de l'element <canvas>
+        // Récupération de l'element <canvas> par son id
         this.canvas = document.getElementById("drawing_canvas");
+        
+        // Récupération du context
         this.context = this.canvas.getContext("2d");
         
         // Utilisation de la lib HammerJS pour gérer le touch et la souris
         var hammer = new Hammer(this.canvas);
+        
+        // Lorsque l'utilisateur commence à déssiner
         hammer.ondragstart = function(ev) {
             Draw.start(ev.position);
         };
+        // Lorsque l'utilisateur dessine
         hammer.ondrag = function(ev) {
             Draw.drag(ev.position);
         };
+        // Lorsque l'utilisateur relache le doigt
         hammer.ondragend = function(ev) {
             Draw.end();
         };
-        
+
         // Resize le canvas à la taille de la fenêtre
         this.resize();
     
@@ -62,6 +70,8 @@ var Draw = {
         // L'utilisateur n'est plus entrain de dessiner
         this.isDrawing = false;
     },
+    
+    // Resize du canvas à la taille de la fenêtre
     resize: function() {
         Draw.canvas.width = document.body.clientWidth;
         Draw.canvas.height = document.body.clientHeight;
