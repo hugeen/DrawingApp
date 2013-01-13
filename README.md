@@ -1,12 +1,12 @@
 DrawingApp
 ==========
 
-# [Blog post](/)
+## [Blog post](http://hugeen.wordpress.com/2013/01/13/a-la-recherche-dune-application-de-dessin-pour-tablette/)
 
-# [Demo](http://hugeen.github.com/DrawingApp/demo/)
+## [Demo](http://hugeen.github.com/DrawingApp/demo/)
 
-# main.js
+## main.js
 Initialisation de l'application
 
-# draw.js
+## draw.js
 Module de dessin
