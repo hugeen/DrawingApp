@@ -38,7 +38,8 @@ var Draw = {
         
         // Stockage de la position de départ
         this.startPosition = position;
-        this.move(this.startPosition);
+        
+        this.drag(this.startPosition);
     },
     // https://developer.mozilla.org/fr/docs/Dessiner_avec_canvas
     drag: function(position) {
